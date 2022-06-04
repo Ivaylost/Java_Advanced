@@ -1,9 +1,11 @@
-import java.util.ArrayList;
+package FunctionalProgramming;
+
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Cool {
 
@@ -19,17 +21,11 @@ public class Cool {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        List<Person> people = new ArrayList<>();
-        int n = Integer.parseInt(scanner.next());
+        int n = Integer.parseInt(scanner.nextLine());
 
-        while (n-- >0){
-            String x = scanner.nextLine();
-            String[] data = x.split(", ");
-            String name = data[0];
-            int age = Integer.parseInt(data[1]);
-            Person p = new Person(name, age);
-            people.add(p);
-        }
+        List<Person> people = IntStream.range(0, n)
+                .mapToObj(i -> getPerson(scanner))
+                .collect(Collectors.toList());
 
         String ageCondition = scanner.nextLine();
         int ageFilter = Integer.parseInt(scanner.nextLine());
@@ -40,6 +36,13 @@ public class Cool {
 
         people.forEach(printer);
 
+    }
+
+    public static Person getPerson(Scanner scanner){
+        String[] data = scanner.nextLine().split(", ");
+        String name = data[0];
+        int age = Integer.parseInt(data[1]);
+        return new Person(name, age);
     }
 
     private static Consumer<Person> getPrinter(String outputFormat) {
@@ -58,9 +61,9 @@ public class Cool {
     private static Predicate<Person> getPredicate(String ageCondition, int ageFilter) {
         switch (ageCondition) {
             case "younger":
-                return p -> p.age >= ageFilter;
-            case "older":
                 return p -> p.age <= ageFilter;
+            case "older":
+                return p -> p.age >= ageFilter;
             default:
                 throw new IllegalArgumentException("invalid input");
         }
