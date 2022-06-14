@@ -1,4 +1,4 @@
-package Generics.CustomList;
+package Generics.CustomListSorter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +31,14 @@ public class CustomList <T extends Comparable<T>> {
         T last = list.get(lastIndex);
         list.set(firstIndex, last);
         list.set(lastIndex, first);
+    }
+
+    public int size(){
+        return list.size();
+    }
+
+    public T get(int index){
+        return list.get(index);
     }
 
     public int countGreaterThen(T element){

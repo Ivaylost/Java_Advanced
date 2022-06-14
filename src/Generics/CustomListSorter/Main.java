@@ -1,4 +1,4 @@
-package Generics.CustomList;
+package Generics.CustomListSorter;
 
 import java.util.Scanner;
 
@@ -35,6 +35,9 @@ public class Main {
                     break;
                 case "Print":
                     list.getList().forEach(System.out::println);
+                    break;
+                case "Sort":
+                    Sorter.sort(list);
                     break;
                 default:
                     throw new IllegalArgumentException("Wrong input");
