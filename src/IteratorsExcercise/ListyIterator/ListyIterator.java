@@ -1,9 +1,10 @@
 package IteratorsExcercise.ListyIterator;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
-public class ListyIterator {
+public class ListyIterator implements Iterable<String> {
     private List<String> list;
     private int index;
 
@@ -33,5 +34,24 @@ public class ListyIterator {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public Iterator<String> iterator() {
+        return new Iterator<String>() {
+            private int index;
+
+            @Override
+            public boolean hasNext() {
+                return index < list.size();
+            }
+
+            @Override
+            public String next() {
+                String element = list.get(index);
+                index++;
+                return null;
+            }
+        };
     }
 }

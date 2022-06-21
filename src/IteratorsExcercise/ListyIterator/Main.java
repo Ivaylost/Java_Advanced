@@ -36,6 +36,11 @@ public class Main {
                 case "HasNext":
                     System.out.println(iterator.hasNext());
                     break;
+                case "PrintAll":
+                    for (String s : iterator) {
+                        System.out.println(s);
+                    }
+                    break;
             }
 
             command = sc.nextLine();
