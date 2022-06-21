@@ -1,4 +1,4 @@
-package IteratorsExcercise.ListyIterator;
+package IteratorsExcercise.StackIterator;
 
 import java.util.Arrays;
 import java.util.Iterator;

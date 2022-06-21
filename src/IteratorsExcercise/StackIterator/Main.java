@@ -1,6 +1,5 @@
-package IteratorsExcercise.ListyIterator;
+package IteratorsExcercise.StackIterator;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Scanner;
 
