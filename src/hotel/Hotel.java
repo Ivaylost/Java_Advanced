@@ -7,31 +7,26 @@ import java.util.stream.Collectors;
 public class Hotel {
     private String name;
     private int capacity;
-    private List<Person> persons;
+    private List<Person> roster;
 
     public Hotel(String name, int capacity) {
         this.name = name;
         this.capacity = capacity;
-        this.persons = new ArrayList<>();
+        this.roster = new ArrayList<>();
     }
 
     public void add(Person person){
         if(getCount() < capacity){
-            persons.add(person);
+            roster.add(person);
         }
     }
 
     public boolean remove(String name){
-        Person person = persons.stream().filter(x -> x.getName().equals(name)).findFirst().orElse(null);
-        if(person != null){
-            persons.remove(person);
-            return true;
-        }
-        return false;
+        return roster.removeIf(person -> person.getName().equals(name));
     }
 
     public Person getPerson(String name, String hometown){
-        return persons.stream()
+        return roster.stream()
                 .filter(x -> x.getName().equals(name))
                 .filter(y -> y.getHometown().equals(hometown))
                 .findFirst()
@@ -39,13 +34,13 @@ public class Hotel {
     }
 
     public int getCount(){
-        return persons.size();
+        return roster.size();
     }
 
     public String getStatistics(){
         StringBuilder result = new StringBuilder();
         result.append(String.format("The people in the hotel %s are:%n", name));
-        for (Person person:persons){
+        for (Person person:roster){
             result.append(String.format("%s%n", person));
         }
         return result.toString();
