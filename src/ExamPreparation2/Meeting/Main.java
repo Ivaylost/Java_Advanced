@@ -2,7 +2,9 @@ package ExamPreparation2.Meeting;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,13 +33,13 @@ public class Main {
                 malesS.pop();
             } else if(female % 25 == 0) {
                 female = femalesQ.poll();
-                male = malesS.pop();
+                //male = malesS.pop();
                 if(!femalesQ.isEmpty()){
                     female = femalesQ.poll();
                 }
             } else if(male % 25 == 0) {
                 male = malesS.pop();
-                female = femalesQ.poll();
+                //female = femalesQ.poll();
                 if(!malesS.isEmpty()){
                     male = malesS.pop();
                 }
@@ -53,6 +55,12 @@ public class Main {
                 }
             }
         }
-        System.out.println();
+
+        List<String> collect = malesS.stream().map(String::valueOf).collect(Collectors.toList());
+        List<String> collect1 = femalesQ.stream().map(String::valueOf).collect(Collectors.toList());
+
+        System.out.printf("Matches: %d%n", matches);
+        System.out.printf("Males left: " + (malesS.isEmpty() ? "none" : String.join(", ", collect)) +"%n");
+        System.out.printf("Females left: " + (femalesQ.isEmpty() ? "none" : String.join(", ", collect1)) +"%n");
     }
 }
