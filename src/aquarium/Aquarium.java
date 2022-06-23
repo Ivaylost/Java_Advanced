@@ -17,16 +17,17 @@ public class Aquarium {
 
     public void add(Fish fish){
         boolean match = fishInPool.stream().anyMatch(x -> x.getName().equals(fish.getName()));
-        if(!match && capacity > fishInPool.size()) {
+        if(!match && size > fishInPool.size()-2) {
             fishInPool.add(fish);
         }
     }
 
     public boolean remove(String name) {
-        Fish fish = fishInPool.stream().filter(x -> x.getName().equals(name)).findFirst().orElse(null);
-        if(fish != null){
-            fishInPool.remove(fish);
-            return true;
+        for (int i = 0; i < fishInPool.size(); i++) {
+            if(fishInPool.get(i).getName().equals(name)){
+                fishInPool.remove(i);
+                return true;
+            }
         }
         return false;
     }
@@ -56,7 +57,7 @@ public class Aquarium {
         return size;
     }
 
-    public List<Fish> getFishInPool() {
-        return fishInPool;
+    public int getFishInPool() {
+        return fishInPool.size();
     }
 }

@@ -15,6 +15,7 @@ public class Main {
 
         // Add Fish
         aquarium.add(fish);
+        aquarium.add(fish);
 
         // Find Fish
         aquarium.findFish("Goldy");
