@@ -73,14 +73,9 @@ public class Cocktails {
             System.out.println("What a pity! You didn't manage to prepare all cocktails.");
         }
 
-        //int sum = all.entrySet().stream().mapToInt(x -> x.getValue()).sum();
-        int sumF = freshnessS.stream().mapToInt(x -> x).sum();
-        int sumI = ingredientsQ.stream().mapToInt(x -> x).sum();
-
-        if (sumI > 0) {
-            System.out.printf("Ingredients left: %d%n", sumI);
+        if(!ingredientsQ.isEmpty()){
+            System.out.printf("Ingredients left: %d%n", ingredientsQ.stream().mapToInt(x -> x).sum());
         }
-
         for (var item : all.entrySet()) {
             System.out.printf(" # %s --> %d%n", item.getKey(), item.getValue());
         }
