@@ -9,8 +9,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        ArrayDeque<Integer> queue = new ArrayDeque<>(); //queue - add poll peek
-        ArrayDeque<Integer> stack = new ArrayDeque<>(); // push pop peek
+        ArrayDeque<Integer> queue = new ArrayDeque<>(); //queue - add poll peek Shft+F6 rename
+        ArrayDeque<Integer> stack = new ArrayDeque<>(); //stack - push pop peek
 
         Arrays.stream(sc.nextLine().split(", "))
                 .map(Integer::parseInt)
@@ -20,11 +20,22 @@ public class Main {
                 .map(Integer::parseInt)
                 .forEach(stack::push);
 
-        int qq = queue.peek();
-        int ss = stack.peek();
+        while (!queue.isEmpty() && !stack.isEmpty()) {
+            int q = queue.peek();
+            int s = stack.peek();
+            int sum = q+s;
 
-        int q = queue.poll();
-        int s = stack.pop();
+            switch (sum) {
+                case 150:
+                    break;
+                case 250:
+                    break;
+                case 300:
+                    break;
+                case 400:
+                    break;
+            }
+        }
 
 
 
