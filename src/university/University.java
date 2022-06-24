@@ -26,8 +26,8 @@ public class University {
         for (int i = 0; i < getStudentCount(); i++) {
             if (student.getFirstName().equals(students.get(i).getFirstName()) &&
                     student.getLastName().equals(students.get(i).getLastName())){
-                Student x = students.remove(i);
-                return String.format("Removed student %s %s",x.getFirstName(), x.getLastName());
+               students.remove(student);
+                return String.format("Removed student %s %s",student.getFirstName(), student.getLastName());
             }
         }
         return "Student not found";
