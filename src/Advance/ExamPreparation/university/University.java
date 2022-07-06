@@ -27,7 +27,7 @@ public class University {
         if(capacity > getCapacity()) {
             students.stream().anyMatch(x -> x.compareTo(student) == 0);
         } else {
-            return "No seats in the Advance.university";
+            return "No seats in the Advance.Advance.university";
         }
         return "";
     }

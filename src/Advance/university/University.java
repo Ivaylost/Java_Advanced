@@ -38,13 +38,13 @@ public class University {
             for (Student student1 : students) {
                 if (student.getFirstName().equals(student1.getFirstName()) &&
                 student.getLastName().equals(student1.getLastName())){
-                    return "Student is already in the Advance.university";
+                    return "Student is already in the Advance.Advance.university";
                 }
             }
             students.add(student);
             return String.format("Added student %s %s", student.getFirstName(),student.getLastName());
         } else {
-            return "No seats in the Advance.university";
+            return "No seats in the Advance.Advance.university";
         }
     }
 

@@ -38,7 +38,7 @@ public class Hotel {
 
     public String getStatistics(){
         StringBuilder result = new StringBuilder();
-        result.append(String.format("The people in the Advance.hotel %s are:%n", name));
+        result.append(String.format("The people in the Advance.Advance.hotel %s are:%n", name));
         for (Person person:roster){
             result.append(String.format("%s%n", person));
         }

@@ -2,7 +2,7 @@ package Advance.hotel;
 
 public class Main {
     public static void main(String[] args) {
-        //Initialize the repository (Advance.hotel)
+        //Initialize the repository (Advance.Advance.hotel)
         Hotel hotel = new Hotel("Hilton", 30);
         //Initialize entity
         Person person = new Person("Mark", 11111, 41, "Sofia");
@@ -40,7 +40,7 @@ public class Main {
 
         // Get Statistics
         System.out.println(hotel.getStatistics());
-        // The people in the Advance.hotel Hilton are:
+        // The people in the Advance.Advance.hotel Hilton are:
         // Person Mark: 11111, Age: 41, Hometown: Sofia
         // Person Lizzy: 31311, Age: 24, Hometown: Varna
         // Person Lucy: 54122, Age: 31, Hometown: Birmingham
