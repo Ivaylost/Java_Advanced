@@ -1,4 +1,4 @@
-package shoping;
+package OOP.Encapsulation.Shoping;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -22,6 +22,7 @@ public class Main {
                 persons.put(name,person);
             } catch (IllegalArgumentException e){
                 System.out.println(e.getMessage());
+                return;
             }
         }
 
@@ -35,6 +36,7 @@ public class Main {
                 products.put(name,product);
             } catch (IllegalArgumentException e){
                 System.out.println(e.getMessage());
+                return;
             }
         }
 

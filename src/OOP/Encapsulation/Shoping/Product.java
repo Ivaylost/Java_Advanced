@@ -1,4 +1,4 @@
-package shoping;
+package OOP.Encapsulation.Shoping;
 
 public class Product {
     private String name;
@@ -14,6 +14,9 @@ public class Product {
     }
 
     private void setName(String name) {
+        if (name == null || name.trim().isEmpty()){
+            throw new IllegalArgumentException("Name cannot be empty");
+        }
         this.name = name;
     }
 
@@ -22,6 +25,9 @@ public class Product {
     }
 
     private void setCost(double cost) {
+        if (cost < 0 ){
+            throw new IllegalArgumentException("Money cannot be negative");
+        }
         this.cost = cost;
     }
 }

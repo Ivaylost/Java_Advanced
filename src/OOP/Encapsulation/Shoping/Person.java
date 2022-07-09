@@ -1,4 +1,4 @@
-package shoping;
+package OOP.Encapsulation.Shoping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ public class Person {
 
     public void setMoney(double money) {
         if(money < 0){
-            throw new IllegalArgumentException("Name cannot be empty");
+            throw new IllegalArgumentException("Money cannot be negative");
         }
         this.money = money;
     }
