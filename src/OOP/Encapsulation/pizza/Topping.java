@@ -1,7 +1,6 @@
-package pizza;
+package OOP.Encapsulation.pizza;
 
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 public class Topping {
     private ToppingsType toppingType;
@@ -17,7 +16,7 @@ public class Topping {
         if (Arrays.stream(ToppingsType.values()).anyMatch(x->x.name().equals(toppingType))){
             this.toppingType = ToppingsType.valueOf(toppingType);
         } else{
-            throw new IllegalArgumentException(String.format("Cannot place %s on top of your pizza.", toppingType));
+            throw new IllegalArgumentException(String.format("Cannot place %s on top of your OOP.Encapsulation.pizza.", toppingType));
         }
 
     }

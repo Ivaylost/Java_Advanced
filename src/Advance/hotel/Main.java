@@ -6,11 +6,11 @@ public class Main {
         Hotel hotel = new Hotel("Hilton", 30);
         //Initialize entity
         Person person = new Person("Mark", 11111, 41, "Sofia");
-        //Print person
+        //Print OOP.Inheritance.person
         System.out.println(person);
         //Person Mark: 11111, Age: 41, Hometown: Sofia
 
-        //Add person
+        //Add OOP.Inheritance.person
         hotel.add(person);
         System.out.println(hotel.getCount()); //1
         System.out.println(hotel.remove("Anna")); //false
@@ -26,7 +26,7 @@ public class Main {
         hotel.add(thirdPerson);
         hotel.add(fourthPerson);
 
-        // Get person
+        // Get OOP.Inheritance.person
         Person personForGet = hotel.getPerson("Lucy", "Birmingham");
         Person personForGet1 = hotel.getPerson("Anna", "Burgas");
         System.out.println(personForGet); // Person Lucy: 54122, Age: 31, Hometown: Birmingham

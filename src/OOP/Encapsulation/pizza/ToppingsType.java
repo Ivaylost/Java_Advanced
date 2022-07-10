@@ -1,4 +1,4 @@
-package pizza;
+package OOP.Encapsulation.pizza;
 
 public enum ToppingsType {
     Meat(1.2),
