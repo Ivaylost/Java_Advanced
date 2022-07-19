@@ -1,6 +1,5 @@
-package telephony;
+package OOP.InheritanceAndAbstraction.telephony;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Smartphone implements Callable, Browsable {

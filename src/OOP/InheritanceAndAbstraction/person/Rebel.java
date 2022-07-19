@@ -1,4 +1,4 @@
-package person;
+package OOP.InheritanceAndAbstraction.person;
 
 public class Rebel implements Buyer, Person {
     private String name;

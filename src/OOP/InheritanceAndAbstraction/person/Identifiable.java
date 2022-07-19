@@ -1,4 +1,4 @@
-package person;
+package OOP.InheritanceAndAbstraction.person;
 
 public interface Identifiable {
 

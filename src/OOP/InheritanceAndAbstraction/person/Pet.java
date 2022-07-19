@@ -1,4 +1,4 @@
-package person;
+package OOP.InheritanceAndAbstraction.person;
 
 public class Pet implements Birthable{
     private String name;

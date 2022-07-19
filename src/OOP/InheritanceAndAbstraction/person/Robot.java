@@ -1,4 +1,4 @@
-package person;
+package OOP.InheritanceAndAbstraction.person;
 
 public class Robot implements Identifiable{
     private String id;
