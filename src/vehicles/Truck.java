@@ -1,23 +1,19 @@
 package vehicles;
 
-public class Truck extends Vehicle{
+public class Truck extends Vehicles {
 
     public Truck(double fuelQuantity, double fuelConsumption) {
-        super(fuelQuantity, fuelConsumption + 1.6);
+        super(fuelQuantity, fuelConsumption);
     }
 
     @Override
-    public String driving(String km) {
-        double consumption = Double.parseDouble(km) * super.fuelConsumption;
-        if(super.fuelQuantity >= consumption){
-            super.fuelQuantity -= consumption;
-            return String.format("Truck travelled %s km", km);
-        }
-        return "Truck needs refueling";
+    public String driving(double distance) {
+        double fuelConsumption = distance * (getFuelConsumption() + 1.6);
+        return traveling(fuelConsumption, distance);
     }
 
     @Override
     public void refueling(double liters) {
-        super.fuelQuantity += 0.95*liters;
+        setFuelQuantity(getFuelQuantity() + liters*0.95);
     }
 }

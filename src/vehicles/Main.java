@@ -1,45 +1,58 @@
 package vehicles;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
+    public static Car car = null;
+    public static Truck truck = null;
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner console = new Scanner(System.in);
 
-        String[] carParam = sc.nextLine().split("\\s+");
-        String[] truckParam = sc.nextLine().split("\\s+");
+        getCar(console);
+        getTruck(console);
 
-        Car car = new Car(Double.parseDouble(carParam[1]), Double.parseDouble(carParam[2]));
-        Truck truck = new Truck(Double.parseDouble(truckParam[1]), Double.parseDouble(truckParam[2]));
-        
-        int n = Integer.parseInt(sc.nextLine());
+        int numberOfLines = Integer.parseInt(console.nextLine());
 
-        for (int i = 0; i < n; i++) {
-            String[] command = sc.nextLine().split("\\s+");
-            if ("Drive".equals(command[0])){
-                switch (command[1]){
-                    case "Car":
-                        System.out.println(car.driving(command[2]));
-                        break;
-                    case "Truck":
-                        System.out.println(truck.driving(command[2]));
-                        break;
-                }
-            }
-
-            if ("Refuel".equals(command[0])){
-                switch (command[1]){
-                    case "Car":
-                        car.refueling(Double.parseDouble(command[2]));
-                        break;
-                    case "Truck":
-                        truck.refueling(Double.parseDouble(command[2]));
-                        break;
-                }
-            }
+        while (numberOfLines-- > 0) {
+            executeCommand(console);
         }
 
-        System.out.printf("Car: %.2f%n", car.fuelQuantity);
-        System.out.printf("Truck: %.2f%n", truck.fuelQuantity);
+        System.out.println(car);
+        System.out.println(truck);
+    }
+
+    private static void getTruck(Scanner console) {
+        String[] truckAttributes = console.nextLine().split("\\s+");
+        truck = new Truck(Double.parseDouble(truckAttributes[1]), Double.parseDouble(truckAttributes[2]));
+    }
+
+    private static void getCar(Scanner console) {
+        String[] carAttributes = console.nextLine().split("\\s+");
+        car = new Car(Double.parseDouble(carAttributes[1]), Double.parseDouble(carAttributes[2]));
+    }
+
+    private static void executeCommand(Scanner console) {
+        String[] commandAttribute = console.nextLine().split("\\s+");
+        double argument = Double.parseDouble(commandAttribute[2]);
+        Vehicles vehicle = getVehicle(commandAttribute[1]);
+
+        if ("Drive".equals(commandAttribute[0])) {
+            System.out.println(Objects.requireNonNull(vehicle).driving(argument));
+        } else {
+            Objects.requireNonNull(vehicle).refueling(argument);
+        }
+    }
+
+    private static Vehicles getVehicle(String vehicleType) {
+        switch (vehicleType) {
+            case "Car":
+                return car;
+            case "Truck":
+                return truck;
+            default:
+                return null;
+        }
     }
 }
